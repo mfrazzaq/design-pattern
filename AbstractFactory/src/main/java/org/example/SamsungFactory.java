@@ -1,6 +1,15 @@
 package org.example;
 
 public class SamsungFactory implements IAbstractMobileFactory {
+    private static SamsungFactory instance;
+    private SamsungFactory() {}
+
+    public static SamsungFactory getInstance() {
+        if(instance == null){
+            instance = new SamsungFactory();
+        }
+        return instance;
+    }
 
     @Override
     public IMobile createMobile(String name) throws Exception {
