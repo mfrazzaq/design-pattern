@@ -2,11 +2,13 @@ package org.example;
 
 public class Main {
     public static void main(String[] args) {
-        AbstractFactoryReport abstractFactoryReport = new AbstractFactoryReport();
-        IReport localDetail = abstractFactoryReport.createDetailedReport("local");
-        localDetail.generate();
-        IReport foreignSales = abstractFactoryReport.createSalesReport("foreign");
-        foreignSales.generate();
+        IAbstractMobileFactory apple = new AppleFactory();
+        try{
+            IMobile iphone = apple.createMobile("Iphone15");
+            System.out.println(iphone.getDescription());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
     }
 }
